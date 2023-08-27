@@ -1,0 +1,448 @@
+﻿html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+#loading {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1001;
+  margin-top: 0px;
+  top: 0px;
+  text-align: center;
+}
+#loading img {
+  width: 30%;
+  margin-top: 50%;
+}
+body {
+  background: #ebebeb;
+  position: relative;
+}
+body .wapper {
+  visibility: hidden;
+}
+body .navbar-header {
+  text-align: center;
+}
+body .navbar-header button {
+  margin-top: 14px;
+}
+body .navbar-header button span {
+  font-size: 28px;
+  color: #aaa;
+}
+body .navbar-header .navbar-brand {
+  float: none;
+  display: inline-block;
+  width: 231px;
+  height: 65px;
+  padding: 10px;
+  font-size: 18px;
+  line-height: 20px;
+}
+body .navbar-header .navbar-brand img {
+  width: 80%;
+}
+body .container .row {
+  padding: 0;
+  margin: 10;
+  text-align: center;
+}
+body .cube {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -24%;
+  background: #999;
+  border-radius: 5px;
+  perspective: 700px;
+  box-shadow: 0 0 10px 5px #666 inset;
+}
+body .cube img {
+  width: 100%;
+}
+body .cube .button {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 9999;
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+body .cube .button img {
+  width: 100%;
+  border-radius: 50%;
+}
+body .cube .div1 {
+  width: 90%;
+  height: 90%;
+  top: -2%;
+  left: 5%;
+  margin-top: 100px;
+  transform: perspective(400px) rotatex(0deg) rotatey(0deg);
+  /*拥有近大远小透视效果*/
+  transform-style: preserve-3d;
+  /*设置为3d空间*/
+  position: relative;
+  transition: all 1s;
+  transform: rotateX(0deg);
+  transform: translateZ(-200px);
+}
+body .cube .div1 div {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  background: #ededed;
+  text-align: center;
+}
+body .cube .div1 div img {
+  margin-top: 10%;
+  width: 90%;
+}
+body .cube .div1 div a {
+  display: block;
+  color: #666;
+  font-size: 16px;
+  font-family: "arial, helvetica, sans-serif";
+  margin-top: -30%;
+  height: 10%;
+  text-decoration: none;
+  position: absolute;
+  z-index: 1;
+}
+body .cube .div1 div a img {
+  width: 50%;
+}
+body .cube .div1 .div1_1 {
+  transform: rotatex(-5deg) translatez(100px);/*向前移动100像素，作为最前面的面*/
+}
+body .cube .div1 .div1_4 {
+  transform: rotatex(85deg) translatez(100px);/*绕x轴旋转90度，在z轴正方向移动100像素，作为上面的面*/
+  /*注：旋转时坐标系会跟着一起旋转，z轴原来是垂直屏幕向外的，绕x轴旋转90度以后就是在屏幕上向上的方向*/
+}
+body .cube .div1 .div1_3 {
+  transform: rotatex(175deg) translatez(100px);/*绕x轴旋转180度，这时z轴垂直屏幕向内，在z轴正方向移动100像素，作为后面的面*/
+}
+body .cube .div1 .div1_2 {
+  transform: rotatex(265deg) translatez(100px);/*绕x轴旋转270度，这时z轴向下，在z轴正方向移动100像素，作为下面的面*/
+}
+body .cube .div1 .div1_5 {
+  transform: rotatey(85deg) translatez(100px);/*绕y轴旋转90度，这时z轴向右，在z轴正方向移动100像素，作为右面的面*/
+}
+body .cube .div1 .div1_6 {
+  transform: rotatey(265deg) translatez(100px);/*绕y轴旋转90度，这时z轴向左，在z轴正方向移动100像素，作为左面的面*/
+}
+body .login1 {
+  position: fixed;
+  top: 50%;
+  width: 80%;
+  left: 10%;
+  display: none;
+  margin: 0;
+  text-align: center;
+}
+body .login1 .modal-content {
+  background: #ccc;
+}
+body .login1 .modal-content .modal-header {
+  padding: 20px 15px 10px;
+  border: none;
+  color: #fff;
+  background: #ccc;
+}
+body .login1 .modal-content .modal-header h4 {
+  letter-spacing: 1px;
+}
+body .login1 .modal-content .modal-body {
+  background: #ccc;
+  padding: 10px 15px 20px;
+  overflow: hidden;
+}
+body .login1 .modal-content .modal-body .btn {
+  padding: 2px 16px;
+  margin: 0 1.2rem;
+  font-size: 12px;
+  background: #ccc;
+  border: 1px solid #fff;
+}
+body .login1 .modal-content .modal-body .lj {
+  background: #aaa;
+}
+body .login2 {
+  position: fixed;
+  top: 30%;
+  width: 80%;
+  left: 10%;
+  display: none;
+  margin: 0;
+  text-align: center;
+}
+body .login2 .modal-content {
+  background: #ccc;
+}
+body .login2 .modal-content .modal-header {
+  padding: 20px 15px 10px;
+  border: none;
+  color: #fff;
+  background: #ccc;
+}
+body .login2 .modal-content .modal-header h4 {
+  letter-spacing: 1px;
+}
+body .login2 .modal-content .modal-body {
+  background: #ccc;
+  padding: 10px 15px 20px;
+  overflow: hidden;
+}
+body .login2 .modal-content .modal-body .btn {
+  padding: 2px 16px;
+  margin: 0 1.2rem;
+  font-size: 12px;
+  background: #ccc;
+  border: 1px solid #fff;
+}
+body .login2 .modal-content .modal-body .lj {
+  background: #aaa;
+}
+body .btn-container {
+  width: 100%;
+  padding: 15px 10%;
+}
+body .btn-container img {
+  width: 70%;
+}
+body .btn-container .row div {
+  float: none;
+  padding: 0 25px;
+  margin: 0 auto;
+}
+body .modal {
+  width: 80%;
+  margin: 10% auto;
+}
+body .modal .modal-dialog {
+  margin: 0;
+}
+body .modal .modal-content {
+  padding: 5%;
+  border-radius: 8px;
+}
+body .modal .modal-content .logo {
+  text-align: center;
+}
+body .modal .modal-content .logo img {
+  width: 80%;
+}
+body .modal .modal-content .logo .x {
+  position: absolute;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  font-size: 2.5rem;
+  text-align: center;
+}
+body .modal .modal-content .input-group {
+  margin: 10px auto;
+}
+body .modal .modal-content .text-right {
+  color: #a92020;
+}
+body .modal .modal-content .container {
+  font-size: 12px;
+  color: #ccc;
+}
+body .modal .modal-content .container span.bar {
+  display: inline-block;
+  background: #ccc;
+  height: 1px;
+  width: 28%;
+  vertical-align: middle;
+}
+body .modal .modal-content .container .row {
+  padding: 10px 0;
+}
+body .modal .modal-content .container .row img {
+  width: 50%;
+}
+body .modal .btn {
+  margin: 10px auto;
+  background: #a92020;
+  border: none;
+}
+body .modal .btn:active {
+  background: #a92020;
+}
+body .footer {
+  background-color: #ebebeb;
+  border-color: #ebebeb;
+}
+body .footer .container {
+  font-size: 12px;
+}
+body .login {
+  display: none;
+}
+body .video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+body .video video {
+  position: relative;
+  z-index: 1060;
+  top: 20%;
+}
+body .mapcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+body .mapcon .map {
+  top: 15%;
+  left: 10%;
+  z-index: 1060 !important;
+  width: 80%;
+  height: 60%;
+}
+body .ewmcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+body .ewmcon .ewm {
+  position: relative;
+  z-index: 1060;
+  width: 80%;
+  margin: 40% auto;
+}
+body .ewmcon .ewm img {
+  width: 100%;
+}
+body .intcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+}
+body .intcon .int {
+  position: relative;
+  z-index: 1060;
+  width: 100%;
+  margin: 40% auto 0;
+  text-align: center;
+  color: #fff;
+}
+body .intcon .int img {
+  width: 100%;
+}
+body .intcon .modal-backdrop {
+  background: #fff;
+  opacity: 1;
+}
+body .sharcon {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: none;
+}
+body .sharcon .shar {
+  position: relative;
+  z-index: 1060;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+}
+body .sharcon .shar .row div {
+  text-align: center;
+}
+body .sharcon .shar .row div p {
+  margin: 0;
+  font-size: 12px;
+}
+body .sharcon .shar img {
+  border-radius: 10px;
+  background: #fff;
+}
+body .sharcon .btn {
+  width: 100%;
+  font-size: 16px;
+  background: #eee;
+  font-family: sans-serif;
+}
+body .sharcon .modal-backdrop {
+  background-color: rgba(0, 0, 0, 0);
+}
+@media screen and (min-device-width: 400px) {
+  body .cube .div1 div {
+    position: absolute;
+    width: 84%;
+    height: 84%;
+    top: 8%;
+    left: 8%;
+    background: #fff;
+    text-align: center;
+  }
+}
+span.button {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  z-index: 1000;
+  width: 5rem;
+  height: 5rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+span.button img {
+  width: 100%;
+}
+.liveplayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: #000;
+  display: none;
+}
+.liveplayer video {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.yindao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+.yindao img {
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=new.css.map */

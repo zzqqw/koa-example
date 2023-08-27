@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title><%= title %></title>
+		<link rel="stylesheet" type="text/css" href="/public/home/Css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/public/home/Css/new.css"/>
+		<link rel="stylesheet" type="text/css" href="/public/home/Css/g.css"/>
+	
+        <style>
+          body .intcon .int { margin: 0 auto;}
+          span.fh {top: 90%;}
+        </style>
+    </head>
+
+	<body>
+        <div id="loading">
+			<img src="/public/home/Picture/loding.gif"/>
+		</div>
+		<div class="wapper">
+			<div class="navbar-header container">
+			    <a class="navbar-brand" href="javascript:void(0)"><img src="/public/home/Picture/logo2.png"/></a>
+			</div>
+			
+			<div class="cube">
+                
+				<div class="div1">
+					<div class="div1_1">
+                        <img class="ewm1" src="/public/home/Picture/kb.jpg"/>
+                        <a class="dh" href="tel:4006678680"><img src="/public/home/Picture/dh.png"/></a>  
+						<a class="tz" href="javascript:void(0)"><img src="/public/home/Picture/tz.png"/></a>
+					</div>
+					<div class="div1_2">
+                        <span class="tic">点击查看详情</span>
+						<img src="/public/home/Picture/logo.jpg"/>
+					</div>
+					<div class="div1_3">
+						<img class="btn1" src="/public/home/Picture/video.png"/>
+					</div>
+					<div class="div1_4">
+                        <img class="ewm1" src="/public/home/Picture/kb.jpg"/>
+						<a class="sm">
+                          <img class="smimg1" src="/public/home/Picture/ewm1.jpg"/>
+                          <img class="smimg" src="/public/home/Picture/sm.png"/>
+                      </a>
+					</div>
+				</div>
+
+			<!-- div1_2 -->
+			<div class="intcon">
+				<div class="int">
+					<img src="/public/home/Picture/int.jpg"/>
+                    <span class="fh"><img src="/public/home/Picture/fanhui.png"></span>
+				</div>
+				<div class="modal-backdrop fade in"></div>
+			</div>
+			<!-- div1_3 -->
+			<div class="liveplayer">
+			    <video src="http://video.100sec.cn/%E5%B8%AE%E7%80%9B%E6%B3%95%E5%8A%A10126s.mp4"
+			            controls>
+			    </video>
+			</div>
+			<!-- div1_4 -->
+			<div class="ewmcon">
+				<div class="ewm">
+                  <img src="/public/home/Picture/byewm.jpg" alt="二维码" />
+                  <span class="fh1"><img src="/public/home/Picture/fanhui.png"></span>
+                </div>
+				<div class="modal-backdrop fade in"></div>
+			</div>
+
+
+
+
+              <div class="bar">
+					<ul>
+						<li class="bar1"></li>
+						<li class="bar2"></li>
+						<li class="bar3"></li>
+						<li class="bar4"></li>
+					</ul>
+				</div>
+
+			</div>
+
+		   
+			<div class="container btn-container">
+				<div class="row">
+                  <div class="col-xs-4">
+                        <a>
+                          <img id="dj" class="button" data-toggle="modal" data-target="login-modal" src="/public/home/Picture/fzbtn.png"/>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<nav class="footer">
+			  <div class="container">
+					<p class="text-center">RECOMMEND COOL 100<sup>sec</sup></p>
+			  </div>
+			</nav>
+
+	
+			<div class="mapcon">
+				<div class="map" id="dituContent"></div>
+				<div class="modal-backdrop fade in"></div>
+			</div>
+
+
+
+			<!--html标签布局-->
+		</div>
+
+		<script src="/public/home/Scripts/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/public/home/Scripts/mmd.videoplayer.min.1.0.0.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript" src="/public/home/Scripts/jweixin-1.2.0.js"></script>
+        <script type="text/javascript">
+			var videoPlayer = (function() {
+		    var $livePlayer = document.getElementsByClassName('liveplayer')[0];
+		    var $video = document.getElementsByTagName('video')[0];
+		    var $playBtn = document.getElementsByClassName('btn1')[0];
+		
+		    $playBtn.addEventListener('click', function() {
+		        $livePlayer.style.display = 'block';
+		        $video.style.display = 'block';
+		        $video.play();
+		    })
+		    $video.addEventListener("webkitfullscreenchange", function(e) {
+			    if (!document.webkitIsFullScreen) {
+			       //退出全屏关闭视频
+			    };
+			})
+		    $video.addEventListener('pause', function() {
+			    $livePlayer.style.display = 'none';
+			})
+		    $video.addEventListener('play', function() {
+			    $livePlayer.style.display = 'block';
+			})
+		})()
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				var ww = $(document).width();
+				var w = $(".cube").width();
+				$(".cube").css("height",1.1*w);
+				if(ww>=400){
+					var dw = 0.83*w;
+				}else{
+					var dw = 0.888*w;
+				}
+				$(".div1_1").css("transform","rotatex(-5deg) translatez(" + dw/2 + "px)");
+				$(".div1_2").css("transform","rotatex(265deg) translatez(" + dw/2 + "px)");
+				$(".div1_3").css("transform","rotatex(175deg) translatez(" + dw/2 + "px)");
+				$(".div1_4").css("transform","rotatex(85deg) translatez(" + dw/2 + "px)");
+				$(".div1").css("transform"," rotateX(80deg) translatez(0)");
+                var num = 1;
+                 var num1 = 1;
+              $(".bar1").css("background","#fff")
+                 $(".button").on("click",function() {
+                     num++;
+                     num1++;
+                     var a = num-10;
+                     var b = "bar" + num1;
+                     $(".div1").css("transform"," rotateX("+(num*90-10)+"deg)");
+                     if(num1 == 4){
+                     	num1 = 0;
+                     }
+                     $("."+b).css("background","#fff");
+                     $("."+b).siblings("li").css("background","#999");
+                 })
+			})
+			$(function() {
+				var ww = $(document).width();
+				var w = $(".cube").width();
+				$(".cube").css("height",1.1*w);
+				if(ww>=400){
+					var dw = 0.83*w;
+				}else{
+					var dw = 0.888*w;
+				}
+				$(".div1_1").css("transform","rotatex(-5deg) translatez(" + dw/2 + "px)");
+				$(".div1_2").css("transform","rotatex(265deg) translatez(" + dw/2 + "px)");
+				$(".div1_3").css("transform","rotatex(175deg) translatez(" + dw/2 + "px)");
+				$(".div1_4").css("transform","rotatex(85deg) translatez(" + dw/2 + "px)");
+				$(".div1").css("transform"," rotateX(80deg) translatez(0)");
+                 var num = 1;
+                 $(".button").on("click",function() {
+                     num++;
+                     var a = num-10;
+                     $(".div1").css("transform"," rotateX("+(num*90-10)+"deg)");
+                 })
+   				$(".div1_1 img").on("click",function(){
+				 });
+				 $(".div1_2 img,.tic").on("click",function(){
+				 	$(".intcon").fadeIn();
+				 });
+				 $(".smimg,.smimg1").on("click",function(){
+				 	$(".ewmcon").fadeIn();
+				 });
+				 // $(".fx").on("click",function(){
+				 // 	$(".sharcon").slideDown();
+				 // });
+				 // $(".ssuo").on("click",function(){
+				 // 	$(".login2").slideDown();
+				 // });
+				 // $(".sh").on("click",function(){
+				 // 	$(".login1").fadeOut();
+				 // 	$(".login2").fadeOut();
+				 // });
+				 $(".modal-backdrop,.x,.int,.ewm").on("click",function(){
+				 	// $(".login").fadeOut();
+				 	$(".video").fadeOut();
+				 	$(".mapcon").fadeOut();
+				 	$(".ewmcon").fadeOut();
+				 	$(".intcon").fadeOut();
+				 	// $(".sharcon").slideUp();
+				 });
+				 // $(".dl").on("click",function(){
+				 // 	$(".login1").fadeIn();
+				 // });
+				 $('video').bind('ended', function(){  
+			        $(".video").css("display","none");
+			    }) 
+			    $(".yindao").on("click",function(){
+				 	$(".yindao").fadeOut();
+				 });
+            });
+		</script>
+		<script>
+    
+          	$(function(){
+          		var w = $("#cubeTransition").css("width");
+				$("#cubeTransition").css("height",w);
+          	});          
+        </script>
+        <script type="text/javascript">
+			window.onload=function(){
+			    $('#loading').css("display","none"); 
+                $('.wapper').css("visibility","visible"); 
+			}
+        </script>
+	</body>
+
+</html>
+        
+        

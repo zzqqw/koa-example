@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>login</title>
+		<link rel="stylesheet" type="text/css" href="/public/home/Css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/public/home/Css/new.css"/>
+		<link rel="stylesheet" type="text/css" href="/public/home/Css/g.css"/>
+	   <link rel="stylesheet" href="/public/home/Css/common.css"/>
+        <link rel="stylesheet" href="/public/home/Css/login.css"/>
+        <style>
+          body .intcon .int { margin: 0 auto;}
+          span.fh {top: 90%;}
+        </style>
+    </head>
+	<body>
+
+
+		<div class="wapper" id="wapper" style="visibility: visible;">
+			
+    <div id="login"></div>
+    <div class="login_bg">
+        <div id="logo">
+            <img src="/public/home/Picture/logo.png" alt=""/>
+        </div>
+        <form action="/user/dologin" id="fromid" method="post" onsubmit="return fromcheck()">
+            <div class="userName"  >
+                <lable>手机号：</lable>
+<input type="text"  name="mobile" id="mobile" placeholder="请输入手机号"  maxlength="11"/>
+            </div>
+            <div class="passWord">
+                <lable>密&nbsp;&nbsp;&nbsp;码：</lable>
+<input type="password"  name="password" placeholder="请输入密码"   />
+            </div>
+
+            <div class="choose_box">
+                <div>
+                    <input type="checkbox" checked="checked" name="checkbox"/>
+                    <lable>记住密码</lable>
+                </div>
+                <a href="javascript:void(0)">忘记密码</a>
+            </div>
+            <button class="login_btn" type="submit" >登&nbsp;&nbsp;录</button>
+
+<script type="text/javascript" src="/public/common/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/public/common/layerm/layer.js"></script>
+
+<script language="javascript">
+	//手机号验证
+   telRuleCheck = function (string) {
+        var pattern = /^1[0345789]\d{9}$/;
+        if (pattern.test(string)) {
+            return true;
+        }
+        return false;
+    };
+    //from表单验证
+	function fromcheck(){
+		let mobile =$('input[name=mobile]').val();
+		let password =$('input[name=password]').val();
+		var mobilelen=mobile.split("").length;
+		if (mobilelen!=11 && !telRuleCheck(mobile)) 
+		{
+			layerm('请正确输入手机号')
+		}else if (password=='' ||password=='undefined') {
+			layerm('请输入密码')
+		}else{
+			dologin()
+		}
+		
+		return false;
+	}
+	function dologin(){
+		$.ajax({
+			type:$("#fromid").attr("method"),
+			url:$("#fromid").attr("action"),
+			data:$("#fromid").serialize(),
+			success: function(response){
+			  console.log(response)
+			}
+		})
+		return false;
+	}
+	function layerm(msg){
+	  layer.open({
+	    content: msg
+	    ,skin: 'msg'
+	    ,time: 2 //2秒后自动关闭
+	  });
+	}
+</script>
+
+
+
+
+        </form>
+        <div class="other_login">
+            <div class="other"></div>
+            <span>其他方式登录</span>
+            <div class="other"></div>
+        </div>
+        <div class="other_choose">
+            <a href="">
+                <img src="/public/home/Picture/qq.png" alt=""/>
+            </a>
+            <a href="">
+                <img src="/public/home/Picture/wx.png" alt=""/>
+            </a>
+            <a href="">
+                <img src="/public/home/Picture/wb.png" alt=""/>
+            </a>
+        </div>
+    </div>
+
+
+		</div>
+		
+	</body>
+
+</html>
+        
+        

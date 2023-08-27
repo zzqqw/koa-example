@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>注册</title>
+        <link rel="stylesheet" type="text/css" href="/public/home/Css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/public/home/Css/new.css"/>
+        <link rel="stylesheet" type="text/css" href="/public/home/Css/g.css"/>
+       <link rel="stylesheet" href="/public/home/Css/common.css"/>
+        <link rel="stylesheet" href="/public/home/Css/login.css"/>
+        <script type="text/javascript" src="/public/common/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/public/common/layerm/layer.js"></script>
+        <style>
+          body .intcon .int { margin: 0 auto;}
+          span.fh {top: 90%;}
+        </style>
+    </head>
+    <body>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        $("#mobile").on("input propertychange",function(){
+            var mobile=$('#mobile').val();
+            var str=mobile.split("").length;
+            if (str==11 && telRuleCheck(mobile)) {
+                  //询问框
+              layer.open({
+                content: '点击确定接受短信？'
+                ,btn: ['确定', '不要']
+                ,yes: function(index){
+                   if (sendmsg(mobile)) {
+                     load()
+                     layer.close(index);
+                   } 
+                },
+              });
+            }
+        })
+    })
+    //发送验证码
+    function sendmsg(mobile){
+        $.ajax({
+            type:'post',
+            url:'/sendmsg',
+            data:{'mobile':mobile,'now':new Date().getTime()},
+            success:function(res){
+                // var res = eval('(' + res + ')');
+                if (res.code===2) {
+                    $('.yanzhen').show()
+                }else{
+                    //如果失败之后就定时刷新
+                    setTimeout(function () { location.reload();}, 1000);
+                }
+                layerm(res.msg)
+            }
+
+        })
+        return true
+    }
+
+</script>
+
+
+<script language="javascript">
+    // //from表单验证
+    function fromcheck(){
+        let mobile =$('input[name=mobile]').val();
+        let password =$('input[name=password]').val();
+        var mobilelen=mobile.split("").length;
+        if (mobilelen!=11 && !telRuleCheck(mobile)) 
+        {
+            layerm('请正确输入手机号')
+        }else if (code=='' ||code=='undefined') {
+            layerm('请输入验证码')
+        }else if (password=='' ||password=='undefined') {
+             layerm('请输入密码')
+        }else{
+            doregister()
+        }
+        
+        return false;
+    }
+    function doregister(){
+        $.ajax({
+            type:$("#fromid").attr("method"),
+            url:$("#fromid").attr("action"),
+            data:$("#fromid").serialize(),
+            success: function(response){
+              console.log(response)
+            }
+        })
+        return false;
+    }
+
+</script>
+
+    <div class="wapper" id="wapper" style="visibility: visible;">
+            
+    <div id="login"></div>
+    <div class="login_bg">
+        <div id="logo">
+            <img src="/public/home/Picture/logo.png" alt=""  />
+        </div>
+
+
+        <form action="/user/doregister" id="fromid" method="post" onsubmit="return fromcheck()">
+            <div class="userName"  >
+                <lable>手机号：</lable>
+<input type="text"  name="mobile" id="mobile" placeholder="请输入手机号" maxlength="11" />
+            </div>
+            <div class="passWord yanzhen" style="display: none">
+                <lable>验证码：</lable>
+<input type="text"  name="code" placeholder="请输入验证码"   />
+            </div>
+
+            <div class="passWord">
+                <lable>密&nbsp;&nbsp;&nbsp;码：</lable>
+<input type="password"  name="password" placeholder="请输入密码"   />
+            </div>
+
+            <div class="choose_box">
+            </div>
+            <button class="login_btn" type="submit" >马上注册</button>
+        </form>
+        <div class="other_login">
+            <div class="other"></div>
+            <span>其他方式登录</span>
+            <div class="other"></div>
+        </div>
+        <div class="other_choose">
+            <a href="">
+                <img src="/public/home/Picture/qq.png" alt=""/>
+            </a>
+            <a href="">
+                <img src="/public/home/Picture/wx.png" alt=""/>
+            </a>
+            <a href="">
+                <img src="/public/home/Picture/wb.png" alt=""/>
+            </a>
+        </div>
+    </div>
+
+
+        </div>
+<script type="text/javascript">
+    //手机号验证
+   telRuleCheck = function (string) {
+        var pattern = /^1[0345789]\d{9}$/;
+        if (pattern.test(string)) {
+            return true;
+        }
+        return false;
+    };
+    function load(){
+       layer.open({ type: 2
+            ,content: "加载中"
+            ,time: 2 //2秒后自动关闭
+         }) 
+    }
+    function layerm(msg){
+      layer.open({
+        content: msg
+        ,skin: 'msg'
+        ,time: 2 //2秒后自动关闭
+      });
+    }
+</script>
+    </body>
+
+</html>
+        
+        
